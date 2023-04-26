@@ -1,11 +1,11 @@
 const input = {
-  color: "primary",
+  color: 'primary',
   outlined: false,
   //standout: true,
-  "stack-label": true,
+  'stack-label': true,
   dense: true,
-  "lazy-rules": "ondemand",
-  autocomplete: "nofill",
+  'lazy-rules': 'ondemand',
+  autocomplete: 'nofill',
   clearable: true,
   rounded: false,
   filled: false,
@@ -15,9 +15,9 @@ const input = {
 };
 
 const button = {
-  color: "primary",
+  color: 'primary',
   unelevated: false,
-  size: "sm",
+  size: 'sm',
 };
 
 export { input, button };

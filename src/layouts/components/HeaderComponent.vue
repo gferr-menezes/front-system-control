@@ -1,5 +1,5 @@
 <template>
-  <q-header>
+  <q-header :style="styleHeader">
     <q-toolbar>
       <q-btn flat dense round icon="menu" aria-label="Menu" @click="$emit('toggleDrawer')" />
       <q-toolbar-title class="q-pl-none">
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
 import DialogLoading from 'src/components/DialogLoading.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 /**
  * emits
@@ -38,10 +38,23 @@ import { ref } from 'vue';
 defineEmits(['toggleDrawer']);
 
 /**
+ * props
+ */
+const props = defineProps({
+  miniStateControl: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+/**
  * data
  */
 const $q = useQuasar();
 const dialogLogout = ref(false);
+const styleHeader = ref({
+  left: '70px',
+});
 
 /**
  * methods
@@ -53,6 +66,17 @@ const logout = () => {
     window.location.href = '/';
   }, 3000);
 };
+
+watch(
+  () => props.miniStateControl,
+  (value) => {
+    if (!value) {
+      styleHeader.value.left = '300px';
+    } else {
+      styleHeader.value.left = '70px';
+    }
+  },
+);
 
 </script>
 

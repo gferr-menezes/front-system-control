@@ -34,3 +34,20 @@ export interface InputApiPaginationInterface {
   sort_by?: string;
   sort_order?: 'asc' | 'desc';
 }
+
+export interface OutputContact {
+  id: number;
+  phone: string;
+  email?: string | null;
+  address?: string | null;
+  address_number?: string | null;
+  address_complement?: string | null;
+  neighborhood?: string | null;
+  zip_code?: string | null;
+  city?: string | null;
+  state?: string | null;
+  created_at: Date;
+  updated_at: Date;
+  company_id?: number | null;
+  client_id?: number | null;
+}

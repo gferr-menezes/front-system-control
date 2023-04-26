@@ -1,49 +1,53 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item clickable @click="goTo(routeName)">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
+      <div style="position: absolute; top: 32px; font-size: 12px; left: 0px; padding-left: 1px;" class="full-width">
+        {{ title }}
+      </div>
     </q-item-section>
 
     <q-item-section>
       <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
 
-export default defineComponent({
-  name: 'EssentialLink',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
+/**
+ * data
+ */
+const router = useRouter();
 
-    caption: {
-      type: String,
-      default: ''
-    },
-
-    link: {
-      type: String,
-      default: '#'
-    },
-
-    icon: {
-      type: String,
-      default: ''
-    }
+/**
+ * define props
+ */
+defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  routeName: {
+    type: String,
+    required: false
+  },
+  icon: {
+    type: String,
+    default: '',
+    required: false
   }
 });
+
+/**
+ * methods
+ */
+const goTo = (routeName?: string) => {
+  if (routeName) {
+    console.log('routeName', routeName);
+    router.push({ name: routeName });
+  }
+}
+
 </script>

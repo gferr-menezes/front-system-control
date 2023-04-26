@@ -9,7 +9,7 @@ api.interceptors.request.use(
   async function (config) {
     const baseUrl = config.baseURL;
 
-    const loginData: any | null = LocalStorage.getItem('helpDeskData');
+    const loginData: any | null = LocalStorage.getItem('loginData');
     const urlCurrent = url(baseUrl!, config.url!);
 
     // NProgress.start();
@@ -49,7 +49,7 @@ api.interceptors.response.use(
     const message = responseData?.message ?? null;
 
     if (status === 401 && urlRequest !== 'auth/login') {
-      LocalStorage.remove('helpDeskData');
+      LocalStorage.remove('loginData');
       window.location.href = '/';
     }
 

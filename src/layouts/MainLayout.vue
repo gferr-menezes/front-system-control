@@ -1,12 +1,12 @@
 <template>
   <q-layout view="lHh lpR lFf">
 
-    <HeaderComponent v-if="showComponentsLayout" @toggleDrawer="toggleLeftDrawer" />
+    <HeaderComponent v-if="showComponentsLayout" @toggleDrawer="toggleLeftDrawer" :miniStateControl="miniState" />
 
     <q-drawer v-model="leftDrawerOpen" bordered show-if-above :mini="miniState" v-if="showComponentsLayout">
       <q-list>
-        <q-item-label header>
-          Essential Links
+        <q-item-label header class="text-center">
+          Menus de acesso
         </q-item-label>
 
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
@@ -30,52 +30,27 @@ import HeaderComponent from './components/HeaderComponent.vue';
  */
 const stylePageContainer = ref({
   paddingLeft: '80px',
+  paddingRight: '11px',
+  paddingTop: '62px',
 });
 
 const route = useRoute();
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Início',
+    icon: 'home',
+    link: null,
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Empresas',
+    icon: 'store',
+    routeName: 'company',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Clientes',
+    icon: 'group',
+    link: null,
   }
 ];
 
@@ -119,7 +94,7 @@ div>>>.q-drawer {
 }
 
 div>>>.q-header {
-  left: 70px !important;
+
   background-color: #FFFFFF !important;
   color: #252e35;
 }

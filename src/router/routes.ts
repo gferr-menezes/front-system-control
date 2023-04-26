@@ -2,9 +2,10 @@ import { RouteRecordRaw } from 'vue-router';
 
 import auth from 'src/modules/auth/routes';
 import dashboard from 'src/modules/dashboard/routes';
+import company from 'src/modules/company/routes';
 
 let baseRoutes: RouteRecordRaw[] = [];
-const systemRoutes = baseRoutes.concat(auth, dashboard);
+const systemRoutes = baseRoutes.concat(auth, dashboard, company);
 
 const routes: RouteRecordRaw[] = [
   {
