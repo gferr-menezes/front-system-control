@@ -10,6 +10,11 @@ const systemRoutes = baseRoutes.concat(auth, dashboard, company);
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    component: () => import('layouts/MainLayoutWeb.vue'),
+    // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+  },
+  {
+    path: '/adm',
     component: () => import('layouts/MainLayout.vue'),
     children: systemRoutes,
     // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
@@ -19,7 +24,7 @@ const routes: RouteRecordRaw[] = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    component: () => import('layouts/MainLayoutWeb.vue'),
   },
 ];
 

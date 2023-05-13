@@ -4,17 +4,17 @@ export default [
     component: () => import('./Main.vue'),
     children: [
       {
-        path: '/company',
+        path: '/adm/company',
         name: 'company',
         component: () => import('./pages/Index.vue'),
       },
       {
-        path: '/company/create',
+        path: '/adm/company/create',
         name: 'companyCreate',
         component: () => import('./pages/CreateOrEdit.vue'),
       },
       {
-        path: '/company/edit/:id',
+        path: '/adm/company/edit/:id',
         name: 'companyEdit',
         component: () => import('./pages/CreateOrEdit.vue'),
       },

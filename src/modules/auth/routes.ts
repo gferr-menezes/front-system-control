@@ -1,13 +1,12 @@
 export default [
   {
-    path: '/auth',
-    name: 'auth',
+    path: '/',
     component: () => import('./Main.vue'),
     children: [
       {
-        path: '/auth',
-        component: () => import('./pages/Index.vue'),
         name: 'auth',
+        path: '/adm/auth',
+        component: () => import('./pages/Index.vue'),
       },
     ],
   },

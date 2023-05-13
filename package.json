@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "productName": "Unindo o mercado imobiliário",
   "author": "Guilherme Ferreira <gferr.menezes@gmail.com>",
   "private": true,
   "scripts": {

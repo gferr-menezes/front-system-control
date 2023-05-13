@@ -34,21 +34,26 @@ export default route(function (/* { store, ssrContext } */) {
    * Router protected
    */
   Router.beforeEach(async (to, from, next) => {
-    if (to.path === '/' && getUserLogged()) {
-      next('/dashboard');
-    }
+    // if (to.path === '/' && getUserLogged()) {
+    //   next('/dashboard');
+    // }
 
-    if (to.path === '/' && !getUserLogged()) {
+    if (to.path === '/adm' && !getUserLogged()) {
       next({ path: '/auth' });
     }
-
-    if (to.name != 'auth' && getUserLogged()) {
-      next();
-    } else if (to.name === 'auth') {
-      next();
+    if (to.path === '/adm' && getUserLogged()) {
+      next({ path: '/adm/dashboard' });
     } else {
-      next({ path: '/auth' });
+      next();
     }
+
+    // if (to.name != 'auth' && getUserLogged()) {
+    //   next();
+    // } else if (to.name === 'auth') {
+    //   next();
+    // } else {
+    //   next({ path: '/auth' });
+    // }
   });
 
   return Router;

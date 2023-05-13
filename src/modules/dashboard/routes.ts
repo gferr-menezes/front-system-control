@@ -1,10 +1,10 @@
 export default [
   {
-    path: '/',
+    path: '/adm',
     component: () => import('./Main.vue'),
     children: [
       {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'dashboard',
         component: () => import('./pages/Index.vue'),
       },
