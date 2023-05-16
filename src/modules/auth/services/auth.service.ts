@@ -30,7 +30,7 @@ export class AuthService {
       LocalStorage.set('loginData', loginData);
 
       setTimeout(() => {
-        window.location.href = '/adm';
+        window.location.href = '/#/adm';
       }, 800);
     } catch (error) {
       throw error;
