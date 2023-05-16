@@ -11,7 +11,7 @@ let url = null;
 if (process.env.DEV) {
   url = 'http://localhost:3000/api';
 } else {
-  url = 'https://api.localhost.com/api';
+  url = 'http://vps44394.publiccloud.com.br:3000/api';
 }
 
 const api = axios.create({ baseURL: url! });
